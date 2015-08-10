@@ -2,7 +2,7 @@
   "name": "aperture-be-gone",
   "version": "0.1.0",
   "description": "taking out images from aperture lib",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +16,9 @@
     "url": "https://github.com/zahanm/aperture-be-gone/issues"
   },
   "homepage": "https://github.com/zahanm/aperture-be-gone#readme",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0"
+  }
 }
