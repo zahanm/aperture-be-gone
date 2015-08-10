@@ -1,0 +1,20 @@
+{
+  "name": "aperture-be-gone",
+  "version": "0.1.0",
+  "description": "taking out images from aperture lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zahanm/aperture-be-gone.git"
+  },
+  "author": "z@zahanm.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zahanm/aperture-be-gone/issues"
+  },
+  "homepage": "https://github.com/zahanm/aperture-be-gone#readme",
+  "private": true
+}
