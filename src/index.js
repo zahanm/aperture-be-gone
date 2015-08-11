@@ -7,8 +7,9 @@ var path = require('path');
 
 var NUM_CPUS = require('os').cpus().length;
 var HIDDEN_FILE_RE = /^\./;
-var APERTURE_FILE_EXT_RE = /\.(apfile|apmaster|apversion)$/i;
-var DONT_CARE_RE = /\.(xml|plist)$/i;
+var APERTURE_FILE_EXT_RE =
+  /\.(apfile|apmaster|apversion|apdb|apfolder|apalbum)$/i;
+var DONT_CARE_RE = /\.(db|xml|plist)$/i;
 var APERTURE_FOLDERS = new Set(['Previews', 'Thumbnails']);
 
 class Extractor {
@@ -24,16 +25,12 @@ class Extractor {
   run() {
     console.time(process.argv[1]);
     this.dirs.push(this.base);
-    let ii = 0;
     while (this.dirs.length > 0) {
       let dir = this.dirs.pop();
       this.process(dir);
-      if (ii > 10) {
-        break;
-      }
-      ii++;
     }
     console.timeEnd(process.argv[1]);
+    console.log('Rescued %d', this.soulsaved);
   }
 
   process(dir) {
@@ -56,7 +53,7 @@ class Extractor {
     this.soulsaved++;
     let destitem = path.join(this.dest, this.soulsaved + ext)
     console.log('cp %s to %s', item, destitem);
-    // fs.createReadStream(item).pipe(fs.createWriteStream(destitem));
+    fs.createReadStream(item).pipe(fs.createWriteStream(destitem));
   }
 
   isWorthTraversing(dirpath) {
